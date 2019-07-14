@@ -8071,7 +8071,7 @@ label.panel-block:hover {
 }
 
 .column {
-  display: block;
+  /* display: block; */
   -ms-flex-preferred-size: 0;
       flex-basis: 0;
   -webkit-box-flex: 1;
@@ -8554,9 +8554,9 @@ label.panel-block:hover {
     width: 66.6666%;
   }
   .column.is-half, .column.is-half-tablet {
-    -webkit-box-flex: 0;
+    /* -webkit-box-flex: 0;
         -ms-flex: none;
-            flex: none;
+            flex: none; */
     width: 50%;
   }
   .column.is-one-third, .column.is-one-third-tablet {
