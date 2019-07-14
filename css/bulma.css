@@ -2082,6 +2082,7 @@ a.box:active {
 }
 
 .button.is-info.is-outlined {
+  transition: all 0.3s ease;
   background-color: transparent;
   border-color: #1c3d6f;
   color: #1c3d6f;
