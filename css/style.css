@@ -16,7 +16,9 @@ body {
 .logo {
   text-align: center;
   padding-top: 65px;
-
+}
+.logo--left {
+	text-align: left;
 }
 
 .icon {
@@ -83,6 +85,11 @@ color: #d2ebff;
 	color: #232953;
 	text-transform: none;
 
+}
+p {
+	font-size: 1rem;
+	font-weight: 400;
+	margin-bottom: 1rem !important;
 }
 
 
