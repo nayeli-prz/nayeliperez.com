@@ -2026,13 +2026,13 @@ a.box:active {
 }
 
 .button.is-info {
-  background-color: #209cee;
+  background-color: #262c57;
   border-color: transparent;
   color: #fff;
 }
 
 .button.is-info:hover, .button.is-info.is-hovered {
-  background-color: #1496ed;
+  background-color: #283175;
   border-color: transparent;
   color: #fff;
 }
@@ -2561,11 +2561,14 @@ a.box:active {
   margin: 0 auto;
   position: relative;
 }
+.container--align-left {
+  /* max-width:900px; */
+}
 
 @media screen and (min-width: 1024px) {
   .container {
-    max-width: 960px;
-    width: 960px;
+    max-width: 900px;
+    width: 100%;
   }
   .container.is-fluid {
     margin-left: 32px;
@@ -2598,8 +2601,8 @@ a.box:active {
 
 @media screen and (min-width: 1408px) {
   .container {
-    max-width: 1344px;
-    width: 1344px;
+    max-width: 1200px;
+    width: 100%;
   }
 }
 
@@ -10606,7 +10609,7 @@ background-color: #f2f2f2;
 @media screen and (min-width: 769px), print {
   .hero.is-medium .hero-body {
     padding-bottom: 9rem;
-    padding-top: 7rem;
+    padding-top: 4rem;
   }
 }
 
@@ -10721,7 +10724,25 @@ background-color: #f2f2f2;
 }
 
 .section {
-  padding: 3rem 1.5rem;
+  padding: 4.5rem;
+}
+@media screen and (min-width: 650px) {
+  .section.increase-padding-bottom {
+    padding-bottom: 7rem;
+  }
+}
+.section.is-bold {
+  background-image: linear-gradient(141deg, #007e6e 0%, #00727e 41%, #164c73 100%) !important;
+  color: #FFFFFF;
+}
+.section.is-bold .subtitle {
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 500px) {
+  .section {
+    padding: 4rem 2rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
