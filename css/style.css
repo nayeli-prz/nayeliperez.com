@@ -15,7 +15,7 @@ body {
 
 .logo {
   text-align: center;
-  padding-top: 65px;
+	margin-bottom: 2rem;
 }
 .logo--left {
 	text-align: left;
@@ -35,25 +35,40 @@ body {
 color: #d2ebff;
 }
 
-.Site {
+.site {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 	font-family: 'Raleway', sans-serif;
 }
-.Site a {
+.site a {
 	color: #007f6e;
 	font-weight: 600;
 }
 
-.Site-content {
+.site-content {
   flex: 1;
 }
 
 .main-title {
-	font-family: Krona One, sans-serif;
-	font-weight: 600px;
-	text-transform: uppercase;
+	font-family: arno-pro, serif;
+}
+.title.is-5 {
+	line-height: 1.5 !important;
+	font-weight: 400;
+}
+.title.larger, .main-title.larger {
+	font-size: 3.2rem;
+	color: #363636;
+	text-transform: none;
+	margin-bottom: 1rem;
+}
+.subtitle {
+	font-family: arno-pro, serif;
+	font-weight:600 !important;
+}
+.subtitle.less-margin-bottom {
+	margin-bottom: .5rem !important;
 }
 
 .is-myface {
@@ -71,27 +86,11 @@ color: #d2ebff;
 	border: 1px solid black;
 }
 
-
-
-
-.title.is-5 {
-	line-height: 1.5 !important;
-	font-weight: 400;
-
-}
-
-.title.larger {
-	font-size: 3.7rem;
-	color: #232953;
-	text-transform: none;
-
-}
 p {
 	font-size: 1rem;
 	font-weight: 400;
 	margin-bottom: 1rem !important;
 }
-
 
 
 .hero.is-primary.is-bold {
@@ -111,11 +110,12 @@ p {
 }
 
 .button {
-	font-weight: 600;
+	font-weight: 400 !important;
 	border: 2px;
-
+	font-family: arno-pro, serif;
+	margin-left: .4rem !important;
+	margin-right: .4rem !important;
 }
-
 
 .diary-wrapper {
 	display: flex;
