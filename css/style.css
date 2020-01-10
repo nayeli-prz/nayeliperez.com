@@ -15,12 +15,20 @@ body {
 
 .logo {
   text-align: center;
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
 }
 .logo--left {
 	text-align: left;
+	/* Styling For my name next to logo */
+	display: flex;
+  align-items: center;
 }
-
+.my-name {
+	font-family: arno-pro, serif;
+	font-size: 1.6rem;
+  color: #363636;
+  margin-left: 16px;
+}
 .icon {
 	font-size: 32px;
 	color: #ffffff;
