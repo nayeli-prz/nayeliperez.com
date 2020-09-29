@@ -1,0 +1,82 @@
+body {
+  background-color: hsl(0, 0%, 98%);
+  line-height: 1.6;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: $font-family-accent;
+}
+
+.np-link {
+  background-color: $teal;
+  font-weight: 500;
+  color: $white;
+  padding-left: 6px;
+  padding-right: 6px;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+  &:hover {
+    color: $white;
+    background-color: $flat-emerald;
+  }
+}
+
+h2 {
+  font-family: $font-family-accent;
+  font-weight: 700;
+  color: $flat-emerald;
+}
+
+.is-accent-font {
+  font-family: $font-family-accent;
+}
+
+.social-links {
+  a {
+    margin-right: 12px;
+    color: $navy;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $flat-emerald;
+    }
+  }
+}
+
+.button {
+  transition-property: transform, box-shadow;
+  transition-duration: .25s;
+  &.is-info {
+    &.is-outlined {
+      &:hover {
+        background-color: transparent;
+        border-color: #00727E;
+        color: #00727E;
+        box-shadow: 0px 1px 7px 0px rgba(0,0,0,.22);
+        -moz-transform: translate(0px, -4px);
+   -ms-transform: translate(0px, -4px);
+   -o-transform: translate(0px, -4px);
+   -webkit-transform: translate(0px, -4px);
+   transform: translate(0px, -4px)
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: #f1f1f1;
+}
+
+.column {
+  &--stickers {
+    position: relative;
+  }
+}
+
+.sticker {
+  position: absolute;
+}
+
+.subtle-text {
+  color: #707070;
+}
