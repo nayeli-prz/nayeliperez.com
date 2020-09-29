@@ -1,0 +1,32 @@
+// Set your brand colors
+$emerald: #00806E;
+$teal: #00727E;
+$flat-emerald: #164C73;
+$navy: #1C3D6F;
+$dark-gray: #363636;
+$light-gray: #999999;
+$white: #FFFFFF;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Literata', serif;
+$font-family-accent: 'Darker Grotesque', sans-serif;
+
+$grey-dark: $dark-gray;
+$grey-light: $white;
+
+$primary: $emerald;
+$link: $flat-emerald;
+$info: $teal;
+$success: $emerald;
+
+
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+
+
+// Update some of Bulma's component variables
+$body-background-color: $white;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
