@@ -5,6 +5,7 @@ $flat-emerald: #164C73;
 $navy: #1C3D6F;
 $dark-gray: #363636;
 $light-gray: #999999;
+$background-gray: #f1f1f1;
 $white: #FFFFFF;
 
 // Update Bulma's global variables
@@ -22,6 +23,8 @@ $success: $emerald;
 
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+
+$footer-background-color: $background-gray;
 
 
 

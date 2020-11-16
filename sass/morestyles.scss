@@ -2,6 +2,14 @@ body {
   background-color: hsl(0, 0%, 98%);
   line-height: 1.6;
 }
+.site-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.site-content {
+  flex: 1;
+}
 .logo {
   display: flex;
   align-items: center;
@@ -63,9 +71,6 @@ h2 {
   }
 }
 
-.footer {
-  background-color: #f1f1f1;
-}
 
 .column {
   &--stickers {
