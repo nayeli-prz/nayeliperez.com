@@ -1,0 +1,106 @@
+/* Type System */
+@use 'variables' as *;
+
+h1 {
+  font-family: $font-serif;
+  font-size: 2.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 132%;
+}
+
+h2 {
+  font-family: $font-sans;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 2.7rem */
+  letter-spacing: -0.0225rem;
+}
+
+h3 {
+  font-family: $font-sans;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 132%; /* 2.64rem */
+}
+
+h4 {
+    font-family: $font-serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 132%; /* 1.98rem */
+}
+
+h5 {
+    font-family: $font-sans;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 132%; /* 1.65rem */
+    letter-spacing: 0.025rem;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-family: $font-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.text-lg {
+    font-family: $font-sans;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 145%; /* 1.8125rem */
+}
+
+.text-base {
+    font-family: $font-sans;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 135%; /* 1.35rem */
+    &-500 {
+        font-family: $font-sans;
+        font-size: 1rem;
+        font-style: normal;
+        line-height: 135%; /* 1.35rem */
+        font-weight: 500;
+    }
+    &-700 {
+        font-family: $font-sans;
+        font-size: 1rem;
+        font-style: normal;
+        line-height: 135%; /* 1.35rem */
+        font-weight: 700;
+    }
+}
+
+.text-sm {
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%; /* 1.18125rem */
+    &-500 {
+        font-family: $font-sans;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 135%; /* 1.18125rem */
+    }
+    &-700 {
+        font-family: $font-sans;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 135%; /* 1.18125rem */
+    }
+}

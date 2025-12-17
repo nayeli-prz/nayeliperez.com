@@ -1,0 +1,120 @@
+// ---------------- Font Variables ----------------
+$font-serif: 'STIX Two Text', Georgia, serif;
+$font-sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+
+// ---------------- Color primitives ---------------------------
+$white: #ffffff;
+$white-70: hsla(0, 0%, 100%, 0.7);
+$white-15: hsla(0, 0%, 100%, 0.15);
+$white-10: hsla(0, 0%, 100%, 0.1);
+$white-6: hsla(0, 0%, 100%, 0.06);
+$black: #282626;    
+
+//Greens
+$green-base: #2F593E;
+$green-base-70: hsla(141, 31%, 27%, 0.7);
+$green-base-15: hsla(141, 31%, 27%, 0.15);
+$green-base-6: hsla(141, 31%, 27%, 0.06);
+$green-dark: #23432E;
+$green-light: #B8D9B6;  
+
+//Purples
+$purple-base: #526178;
+$purple-base-70: hsla(216, 19%, 40%, 0.7);
+$purple-base-15: hsla(216, 19%, 40%, 0.15);
+$purple-base-6: hsla(216, 19%, 40%, 0.06);
+$purple-dark: #2F3C50;
+$purple-light: #D3D7DE;
+$purple-bright: #ACB5EF;
+
+//Oranges
+$orange-base: #A5724C;
+$orange-base-70: hsla(26, 37%, 47%, 0.7); 
+$orange-base-15: hsla(26, 37%, 47%, 0.15);
+$orange-base-6: hsla(26, 37%, 47%, 0.06); 
+$orange-dark: #7B5335;
+$orange-light: #fdeadb;
+$orange-bright: #EBA772;
+
+//Yellows
+$yellow-base: #988948;
+$yellow-base-70: hsla(26, 37%, 47%, 0.7);
+$yellow-base-15: hsla(26, 37%, 47%, 0.15);
+$yellow-base-6: hsla(26, 37%, 47%, 0.06);
+$yellow-dark:#6F663D;
+$yellow-light: #f8f1d6;
+$yellow-bright: #bcaa57 ;
+
+//Black
+$black-base: #282626;
+$black-base-70: hsla(0, 3%, 15%, 0.7);
+$black-base-15: hsla(0, 3%, 15%, 0.15);
+$black-base-6: hsla(0, 3%, 15%, 0.06);
+$black-dark: #F5EDED;
+$black-light: #282626;
+
+:global(:root) {
+  // Default / 1 - Green
+  --color-primary: #{$green-base};
+  --color-secondary: #{$green-light};
+}
+
+:global([data-theme="2"]) {
+  // Purple
+  --color-primary: #{$purple-base};
+  --color-secondary: #{$purple-light};
+}
+
+:global([data-theme="3"]) {
+  // Yellow
+  --color-primary: #{$yellow-base};
+  --color-secondary: #{$yellow-light};
+}
+
+:global([data-theme="4"]) {
+  // Orange
+  --color-primary: #{$orange-base};
+  --color-secondary: #{$orange-light};
+}
+
+:global([data-theme="5"]) {
+  // Black
+  --color-primary: #{$black-base};
+  --color-secondary: #{$black-dark};
+}
+
+
+// ---------------- Spacing scale (base: 8px) ----------------
+$space-2xs: 2px;
+$space-xs: 4px;
+$space-sm: 8px; //Base
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-48: 48px;
+$space-64: 64px;
+$space-80: 80px;
+$space-96: 96px;
+$space-120: 120px;
+
+
+// ---------------- Breakpoints ----------------
+$breakpoints: (
+  'xs': 550px,
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// ---------------- Grid System ----------------
+$grid-columns: 10;
+$grid-margin: 16px;
+$grid-margin-offset: 8px;
+$grid-gutter: 0px;

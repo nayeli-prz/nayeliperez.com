@@ -1,0 +1,135 @@
+@use 'variables' as *;  // The `as *` makes variables available without namespace
+
+.wrapper-flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
+  // Mobile: center align items when inside centered content
+  @media (max-width: 550px) {
+      align-items: center;
+      p {
+        text-align: center;
+      }
+  }
+}
+
+.wrapper-flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.gap-sm {
+    gap: #{$space-sm};
+}
+
+.gap-md {
+    gap: #{$space-md};
+}
+
+.gap-lg {
+    gap: #{$space-lg};
+}
+
+.gap-xl {
+    gap: #{$space-xl};
+}
+
+.gap-48 {
+    gap: #{$space-48};
+}
+
+.gap-64  {
+    gap: #{$space-64};
+}
+
+// ---------------- 10-Column Grid System ----------------
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  gap: $grid-gutter;
+  padding-left: $grid-margin;
+  padding-right: $grid-margin;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// Background grid overlay with dotted strokes
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  gap: $grid-gutter;
+  padding-left: $grid-margin;
+  padding-right: $grid-margin;
+  box-sizing: border-box;
+}
+
+
+//Mixin for dotted stroke for grid styling
+@mixin dashed-stroke($color: $white-10, $dash: 2px, $gap: 4px, $thickness: 1px, $position: left) {
+  $direction: if($position == left or $position == right, to bottom, to right);
+  
+  background-image: repeating-linear-gradient(
+    #{$direction},
+    #{$color} 0,
+    #{$color} #{$dash},
+    transparent #{$dash + $gap},
+    transparent #{$gap}
+  );
+  
+  @if $position == left or $position == right {
+    background-size: #{$thickness} 100%;
+  } @else {
+    background-size: 100% #{$thickness};
+  }
+  
+  background-position: #{$position};
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+.grid-overlay__column {
+    height: 100%;
+
+    // Mobile styling only (below sm breakpoint: 640px)
+    @media (max-width: 639px) {
+        // 1st child: show stroke left
+        &:nth-child(1) {
+            @include dashed-stroke($position: left);
+        }
+        // 5th child: show stroke right
+        &:nth-child(5) {
+            @include dashed-stroke($position: right);
+        }
+        // Last child (10th): show stroke right
+        &:last-child {
+            @include dashed-stroke($position: right);
+        }
+    }
+
+    // Styling for sm to larger screens (640px and up)
+    @include breakpoint('sm') {
+        @include dashed-stroke;
+
+        // Show border for every other column (even columns: 2, 4, 6, 8, 10)
+        &:nth-child(odd) {
+            background-image: none;
+        }
+    }
+
+}
