@@ -28,13 +28,14 @@
             
             <div class="wrapper-flex-col gap-sm">
               <Logomark />
-              <p class="text-base">Impact-focused designer, builder, product strategist, and systems-thinker, with 8+ years of experience designing complex platform products. Based in San Antonio, TX.</p>
-              <p class="text-base">Pondering individual decision-making, collective action, and the tensions that exist between these. Passionate about designing a future (via new systems, platforms, and paradigms) that enable individual behaviors that support the collective good.</p>
+              <p class="text-base">Impact-focused designer, builder, product strategist, and systems-thinker, with 8+ years of experience designing complex platform products. Based in San Antonio, TX</p>
+              <p class="text-base">Pondering: A future where evolving systems, platforms, and paradigms enable individual decisions and behaviors that contribute to the common good.</p>
+              <!-- <p class="text-base">Pondering individual decision-making, collective action, and the tensions that exist between these. Passionate about designing a future (via new systems, platforms, and paradigms) that enable individual behaviors that support the collective good.</p> -->
             </div>
             
             <div class="wrapper-flex-col gap-sm">
               <ContentSection heading="">
-                <div class="text-base">Currently offering Product Design, UX Research, Design Systems services and beyond. Let’s chat!
+                <div class="text-base">Currently offering product design, UX, research, design systems services and beyond. Let’s chat!
                 </div>
               </ContentSection>
               <ContentSection heading="Coming Soon">

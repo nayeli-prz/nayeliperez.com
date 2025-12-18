@@ -7,6 +7,7 @@
 
   let isHovering = $state(false);
   let barElement: SVGRectElement;
+  let cursorX = $state(0);
 
   function getThemeAtPosition(percentage: number): string {
     // Map position to theme number based on gradient sections
@@ -23,6 +24,12 @@
 
   function handleMouseLeave() {
     isHovering = false;
+  }
+
+  function handleMouseMove(e: MouseEvent) {
+    if (!barElement) return;
+    const rect = barElement.getBoundingClientRect();
+    cursorX = e.clientX - rect.left;
   }
 
   function handleClick(e: MouseEvent) {
@@ -49,7 +56,12 @@
 </script>
 
 <div class="gradient-bar-wrapper">
-  <svg class="gradient-bar-svg" width="100%" height="12">
+  {#if isHovering}
+    <div class="hover-label" style="left: {cursorX}px;">
+      PICK
+    </div>
+  {/if}
+  <svg class="gradient-bar-svg" width="100%" height="11">
     <defs>
       <linearGradient id="barGradient">
         <stop offset="0%" class="stop-green" />
@@ -100,7 +112,7 @@
       x="0"
       y="0"
       width="100%"
-      height="12"
+      height="11"
       rx="5"
       fill="url(#barGradient)"
       stroke="url(#strokeGradient)"
@@ -110,6 +122,7 @@
       bind:this={barElement}
       onmouseenter={handleMouseEnter}
       onmouseleave={handleMouseLeave}
+      onmousemove={handleMouseMove}
       onclick={handleClick}
       onkeydown={handleKeyDown}
       role="slider"
@@ -130,6 +143,26 @@
   width: 100%;
   display: flex;
   align-items: center;
+}
+
+.hover-label {
+  position: absolute;
+  top: -34px;
+  transform: translateX(-50%);
+  transition: top 0.2s ease;
+  font-family: #{$font-sans};
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: .05rem;
+  text-transform: uppercase;
+  color: #{$white-50};
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  @media (max-width: 550px) {
+      top: 24px;
+
+  }
 }
 
 .gradient-bar-svg {
