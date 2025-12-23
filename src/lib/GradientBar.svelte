@@ -159,9 +159,9 @@
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
-  @media (max-width: 550px) {
+  @include breakpointMax('sm') {
       top: 24px;
-
+      display: none;
   }
 }
 

@@ -1,26 +1,38 @@
 <script context="module" lang="ts">
   // Export the type from the module script to avoid Svelte compiler errors in some setups
-  export type LogomarkType = 'IconOnly35' | 'Vertical' | 'Horizontal';
+  export type LogomarkType = 'IconOnly35' | 'Vertical-Sm' | 'Vertical-Lg' | 'Horizontal';
   
 </script>
 
 <script lang="ts">
     import LogomarkIcon from '$lib/LogomarkIcon.svelte';
-    export let type: 'Horizontal' | 'Vertical' | 'IconOnly35' = 'Horizontal';
+    export let type: 'Horizontal' | 'Vertical-Sm' | 'Vertical-Lg' | 'IconOnly35' = 'Horizontal';
+    let className: string = '';
+
+    //Enable setting mobile or desktop class based on layout via class
+    export { className as class };
 </script>
 
-{#if type === 'Vertical'}
-		<div class="logomark vertical" role="img" aria-label="Nayeli Pérez logo">
+{#if type === 'Vertical-Sm'}
+		<div class="logomark vertical-sm {className}" role="img" aria-label="Nayeli Pérez logo">
 	    <div class="icon" aria-hidden="true">
 	      <div class="rays">
 	        <LogomarkIcon />
 	      </div>
 	    </div>
-
 	    <div class="name name--vertical">Nayeli Pérez</div>
 	  </div>
+    {:else if type === 'Vertical-Lg'}
+			 <div class="logomark vertical-lg {className}" role="img" aria-label="Nayeli Pérez logo">
+	    <div class="icon icon--vertical-lg" aria-hidden="true">
+	      <div class="rays">
+	        <LogomarkIcon />
+	      </div>
+	    </div>
+	    <div class="name name--vertical-lg">Nayeli Pérez</div>
+	  </div>
 	 {:else if type === 'IconOnly35'}
-			 <div class="logomark icononly" role="img" aria-label="Nayeli Pérez logo">
+			 <div class="logomark icononly {className}" role="img" aria-label="Nayeli Pérez logo">
 		    <div class="icon" aria-hidden="true">
 		      <div class="rays">
 		        <LogomarkIcon />
@@ -28,7 +40,8 @@
 		    </div>
 		  </div>
 	{:else}
-		 <div class="logomark horizontal" role="img" aria-label="Nayeli Pérez logo">
+  <!-- Default is horizontal -->
+		 <div class="logomark horizontal {className}" role="img" aria-label="Nayeli Pérez logo">
 	    <div class="icon" aria-hidden="true">
 	      <div class="rays">
 	        <LogomarkIcon />
@@ -41,6 +54,7 @@
 
 
 <style lang="scss">
+  @import '../styles/variables';
 /* Scoped styles translated from the exported design. Sizes and line-heights match the Figma export. */
 .logomark {
   display: flex;
@@ -55,6 +69,10 @@
     background: transparent;
     width: 35px;
     height: 35px;
+    &.icon--vertical-lg {
+      width: 65px;
+      height: 65px;
+    }
 
     .rays {
       position: absolute;
@@ -84,12 +102,22 @@
         font-weight: 500; 
         width: 55px; 
     }
+    &.name--vertical-lg { 
+        margin-left: 0; 
+        width: 110px; 
+    }
   }
 
-  &.vertical {
+  &.vertical-sm {
     flex-direction: column;
     gap: 8px;
     .name { font-size: 14px; font-weight: 500; }
+  }
+
+  &.vertical-lg {
+    flex-direction: column;
+    gap: 12px;
+    .name { font-size: 1.6rem; line-height: 1.7rem; font-weight: 400; text-align: center; }
   }
 
   &.horizontal {
@@ -103,4 +131,18 @@
     .icon { width: 35px; height: 35px; }
   }
 }
+
+.logomark-desktop {
+  display: none;
+  @include breakpointMin('xs') {
+    display: flex;
+  }
+}
+.logomark-mobile {
+  display: flex;
+  @include breakpointMin('xs') {
+    display: none;
+  }
+}
+
 </style>

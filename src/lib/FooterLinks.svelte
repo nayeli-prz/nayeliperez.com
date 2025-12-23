@@ -51,15 +51,15 @@
   padding: 0 #{$space-sm} 0 #{$space-sm};
 
   &.desktop {
-    @media (max-width: 639px) {
-      display: none;
+    @include breakpointMax('xs') {
+            display: none;
+
     }
   }
 
   &.mobile {
     display: none;
-
-    @media (max-width: 639px) {
+    @include breakpointMax('xs') {
       display: flex;
     }
   }
@@ -104,7 +104,7 @@
   white-space: nowrap;
   animation: toastFadeIn 0.2s ease-out;
 
-  @media (max-width: 550px) {
+  @include breakpointMax('xs') {
     left: 50%;
     top: calc(100% + #{$space-md});
     transform: translateX(-50%);
@@ -126,9 +126,10 @@
     opacity: 1;
     transform: translateY(-50%) scale(1);
   }
+}
 
-  @media (max-width: 639px) {
-    from {
+@include breakpointMax('sm'){
+  from {
       opacity: 0;
       transform: translateX(-50%) scale(0.95);
     }
@@ -136,6 +137,6 @@
       opacity: 1;
       transform: translateX(-50%) scale(1);
     }
-  }
 }
+
 </style>

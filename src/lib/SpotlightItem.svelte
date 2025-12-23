@@ -1,13 +1,13 @@
 <script lang="ts">
   interface Props {
-    heading: string;
+    heading?: string | undefined;
     children: any;
   }
 
   let { heading, children }: Props = $props();
 </script>
 
-<section class="content-section">
+<section class="spotlight-item">
   <h6>{heading}</h6>
   <div>
     {@render children()}
@@ -17,25 +17,25 @@
 <style lang="scss">
 @import '../styles/variables';
 
-.content-section {
+.spotlight-item {
   background: #{$white-6};
   // width: 100%;
   display: flex;
   padding: #{$space-md};
   flex-direction: column;
   align-items: flex-start;
-  gap: #{$space-sm};
+  gap: #{$space-xs};
   align-self: stretch;
   color: #{$white};
-  border-radius: 2px;
-  
+  border-radius: 6px;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: center;
+
   // Mobile: center align items when inside centered content
-      // @include breakpointMax('sm') {
-      //   align-items: center;
-      // }
-      // @include breakpointMin('sm') {
-      //   align-items: flex-start;
-      // }
+  @media (max-width: 550px) {
+      align-items: center;
+  }
 }
 
 </style>

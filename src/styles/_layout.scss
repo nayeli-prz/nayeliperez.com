@@ -123,7 +123,7 @@
     }
 
     // Styling for sm to larger screens (640px and up)
-    @include breakpoint('sm') {
+    @include breakpointMin('sm') {
         @include dashed-stroke;
 
         // Show border for every other column (even columns: 2, 4, 6, 8, 10)

@@ -73,9 +73,9 @@
   </section>
 
   <section style="align-items: start; display: flex; flex-direction: column; gap: 6px;">
-    <h6>Vertical</h6>
+    <h6>Vertical-Sm</h6>
     <div class="preview">
-      <Logomark type="Vertical" />
+      <Logomark type="Vertical-Sm" />
     </div>
   </section>
 

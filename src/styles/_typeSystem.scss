@@ -51,6 +51,9 @@ h6 {
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
+    @include breakpointMax('xs') {
+        font-size: 1rem;
+    }
 }
 
 .text-lg {
@@ -67,12 +70,18 @@ h6 {
     font-style: normal;
     font-weight: 300;
     line-height: 135%; /* 1.35rem */
+    @include breakpointMax('xs') {
+        font-size: 1.05rem;
+    }
     &-500 {
         font-family: $font-sans;
         font-size: 1rem;
         font-style: normal;
         line-height: 135%; /* 1.35rem */
         font-weight: 500;
+        @include breakpointMax('xs') {
+        font-size: 1.05rem;
+        }   
     }
     &-700 {
         font-family: $font-sans;
@@ -80,6 +89,9 @@ h6 {
         font-style: normal;
         line-height: 135%; /* 1.35rem */
         font-weight: 700;
+        @include breakpointMax('xs') {
+        font-size: 1.05rem;
+        }
     }
 }
 
@@ -89,12 +101,18 @@ h6 {
     font-style: normal;
     font-weight: 400;
     line-height: 135%; /* 1.18125rem */
+    @include breakpointMax('xs') {
+        font-size: 1rem;
+    }
     &-500 {
         font-family: $font-sans;
         font-size: 0.875rem;
         font-style: normal;
         font-weight: 500;
         line-height: 135%; /* 1.18125rem */
+        @include breakpointMax('xs') {
+        font-size: 1rem;
+    }
     }
     &-700 {
         font-family: $font-sans;
@@ -102,5 +120,8 @@ h6 {
         font-style: normal;
         font-weight: 700;
         line-height: 135%; /* 1.18125rem */
+        @include breakpointMax('xs') {
+        font-size: 1rem;
+    }
     }
 }
