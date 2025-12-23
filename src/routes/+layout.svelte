@@ -1,5 +1,5 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon-v2.svg';
+	import favicon from '$lib/assets/favicon.svg';
 	import GridOverlay from '$lib/GridOverlay.svelte';
 
 	let { children } = $props();
