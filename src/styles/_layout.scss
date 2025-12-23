@@ -77,8 +77,12 @@
 
 //Mixin for dotted stroke for grid styling
 @mixin dashed-stroke($color: $white-10, $dash: 2px, $gap: 4px, $thickness: 1px, $position: left) {
-  $direction: if($position == left or $position == right, to bottom, to right);
-  
+  $direction: to right;
+
+  @if $position == left or $position == right {
+    $direction: to bottom;
+  }
+
   background-image: repeating-linear-gradient(
     #{$direction},
     #{$color} 0,
@@ -86,13 +90,13 @@
     transparent #{$dash + $gap},
     transparent #{$gap}
   );
-  
+
   @if $position == left or $position == right {
     background-size: #{$thickness} 100%;
   } @else {
     background-size: 100% #{$thickness};
   }
-  
+
   background-position: #{$position};
   background-repeat: no-repeat;
 }

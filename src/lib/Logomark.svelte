@@ -54,7 +54,7 @@
 
 
 <style lang="scss">
-  @import '../styles/variables';
+  @use '../styles/variables' as *;
 /* Scoped styles translated from the exported design. Sizes and line-heights match the Figma export. */
 .logomark {
   display: flex;

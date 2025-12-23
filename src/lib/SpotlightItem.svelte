@@ -15,7 +15,7 @@
 </section>
 
 <style lang="scss">
-@import '../styles/variables';
+@use '../styles/variables' as *;
 
 .spotlight-item {
   background: #{$white-6};

@@ -144,7 +144,7 @@
 {/if}
 
 <style lang="scss">
-@import '../styles/variables';
+@use '../styles/variables' as *;
 
 .spotlight-items-section {
   &.desktop {

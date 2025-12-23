@@ -25,7 +25,7 @@
   <a href={resumePdf} download="Resume-NayeliPerez-2025.pdf" class="footer-link">Resume</a>
   <a href="https://www.linkedin.com/in/nayelip/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
   <div class="email-link-wrapper">
-    <a href="#" onclick={copyEmailToClipboard} class="footer-link">Email</a>
+    <button type="button" onclick={copyEmailToClipboard} class="footer-link">Email</button>
     {#if showCopiedToast}
       <div class="copied-toast">
         <svg class="clipboard-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -40,7 +40,7 @@
 </div>
 
 <style lang="scss">
-@import '../styles/variables';
+@use '../styles/variables' as *;
 
 .footer-links {
   display: flex;
@@ -74,6 +74,10 @@
   color: #{$white};
   text-decoration: none;
   transition: opacity 0.2s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 
   &:hover {
     opacity: 0.7;
@@ -102,12 +106,13 @@
   font-weight: 400;
   color: #{$white};
   white-space: nowrap;
-  animation: toastFadeIn 0.2s ease-out;
+  animation: toastFadeInDesktop 0.2s ease-out;
 
   @include breakpointMax('xs') {
     left: 50%;
     top: calc(100% + #{$space-md});
     transform: translateX(-50%);
+    animation: toastFadeInMobile 0.2s ease-out;
   }
 }
 
@@ -117,7 +122,7 @@
   color: #{$white};
 }
 
-@keyframes toastFadeIn {
+@keyframes toastFadeInDesktop {
   from {
     opacity: 0;
     transform: translateY(-50%) scale(0.95);
@@ -128,15 +133,15 @@
   }
 }
 
-@include breakpointMax('sm'){
+@keyframes toastFadeInMobile {
   from {
-      opacity: 0;
-      transform: translateX(-50%) scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(-50%) scale(1);
-    }
+    opacity: 0;
+    transform: translateX(-50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
 }
 
 </style>

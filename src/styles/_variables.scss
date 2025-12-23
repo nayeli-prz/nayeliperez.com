@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // ---------------- Font Variables ----------------
 $font-serif: 'STIX Two Text', Georgia, serif;
 $font-sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
@@ -107,16 +109,16 @@ $breakpoints: (
   'md': 768px,
   'lg': 1024px,
   'xl': 1280px
-);  
+);
 
 @mixin breakpointMin($size) {
-  @media (min-width: map-get($breakpoints, $size)) {
+  @media (min-width: map.get($breakpoints, $size)) {
     @content;
   }
 }
 
 @mixin breakpointMax($size) {
-  @media (max-width: map-get($breakpoints, $size)) {
+  @media (max-width: map.get($breakpoints, $size)) {
     @content;
   }
 }

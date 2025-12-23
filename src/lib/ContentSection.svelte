@@ -15,7 +15,8 @@
 </section>
 
 <style lang="scss">
-@import '../styles/variables';
+@use '../styles/variables' as *;
+
 
 .content-section {
   background: #{$white-6};

@@ -54,7 +54,7 @@
 
 
 <style lang="scss">
-@import '../styles/variables';
+@use '../styles/variables' as *;
 
 .wrapper {
   min-height: 100vh;
