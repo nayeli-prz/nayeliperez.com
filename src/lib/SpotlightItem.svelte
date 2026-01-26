@@ -31,6 +31,11 @@
   flex-wrap: nowrap;
   height: 100%;
   justify-content: center;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #{$white-10};
+  }
 
   // Mobile: center align items when inside centered content
   @media (max-width: 550px) {

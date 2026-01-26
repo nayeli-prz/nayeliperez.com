@@ -8,6 +8,8 @@
   let isDragging = $state(false);
   let startX = $state(0);
   let scrollLeft = $state(0);
+  let lastDragDistance = $state(0); // Track drag distance for direction-based snapping
+  let lastX = $state(0); // Track last position for delta-based movement
 
   const items: {heading?: string; content: string}[] = [
     {
@@ -16,7 +18,7 @@
     },
     {
       heading: "In the works",
-      content: `Building <span class="text-base-500">San Antonio's Circular Directory</span> in partnership with <a href="https://www.circularsanantonio.org" target="blank">Circular San Antonio</a>`,
+      content: `Building <a href="https://www.circularsanantonio.org/projects/directory" target="blank"><span class="text-base-500">San Antonio's Circular Directory</span></a> in partnership with Circular San Antonio.`,
     }
     // Add more items here as needed
   ];
@@ -25,8 +27,9 @@
     currentIndex = index;
     if (carouselContainer) {
       const itemWidth = carouselContainer.querySelector('.carousel-item')?.clientWidth || 0;
+      const targetScrollLeft = index * itemWidth;
       carouselContainer.scrollTo({
-        left: index * itemWidth,
+        left: targetScrollLeft,
         behavior: 'smooth'
       });
     }
@@ -44,24 +47,40 @@
   // Touch/drag handlers
   function handleTouchStart(e: TouchEvent) {
     isDragging = true;
-    startX = e.touches[0].pageX - carouselContainer!.offsetLeft;
+    // Use pageX directly (viewport-relative) instead of offsetLeft which is relative to offsetParent
+    startX = e.touches[0].pageX;
+    lastX = e.touches[0].pageX; // Initialize last position for delta calculation
     scrollLeft = carouselContainer!.scrollLeft;
+    lastDragDistance = 0; // Reset drag distance
+    // Disable scroll-snap during drag to prevent interference
+    carouselContainer!.style.scrollSnapType = 'none';
   }
 
   function handleMouseDown(e: MouseEvent) {
     isDragging = true;
-    startX = e.pageX - carouselContainer!.offsetLeft;
+    // Use pageX directly (viewport-relative) instead of offsetLeft which is relative to offsetParent
+    startX = e.pageX;
+    lastX = e.pageX; // Initialize last position for delta calculation
     scrollLeft = carouselContainer!.scrollLeft;
+    lastDragDistance = 0; // Reset drag distance
+    // Disable scroll-snap during drag to prevent interference
+    carouselContainer!.style.scrollSnapType = 'none';
     carouselContainer!.style.cursor = 'grabbing';
   }
 
   function handleTouchEnd() {
     isDragging = false;
+    lastX = 0; // Reset last position
+    // Re-enable scroll-snap after drag ends
+    carouselContainer!.style.scrollSnapType = '';
     snapToNearestItem();
   }
 
   function handleMouseUp() {
     isDragging = false;
+    lastX = 0; // Reset last position
+    // Re-enable scroll-snap after drag ends
+    carouselContainer!.style.scrollSnapType = '';
     carouselContainer!.style.cursor = 'grab';
     snapToNearestItem();
   }
@@ -69,23 +88,61 @@
   function handleTouchMove(e: TouchEvent) {
     if (!isDragging) return;
     e.preventDefault();
-    const x = e.touches[0].pageX - carouselContainer!.offsetLeft;
-    const walk = (x - startX);
-    carouselContainer!.scrollLeft = scrollLeft - walk;
+    const currentX = e.touches[0].pageX;
+    // Calculate delta from last position for 1:1 responsive movement
+    // On first move, use startX; on subsequent moves, use lastX
+    const deltaX = lastX === 0 ? startX - currentX : lastX - currentX;
+    // Apply delta to current scroll position for immediate, responsive movement
+    const currentScrollLeft = carouselContainer!.scrollLeft;
+    const newScrollLeft = currentScrollLeft + deltaX;
+    lastDragDistance += deltaX; // Accumulate total drag distance for direction-based snapping
+    lastX = currentX; // Update last position for next delta calculation
+    carouselContainer!.scrollLeft = newScrollLeft;
   }
 
   function handleMouseMove(e: MouseEvent) {
     if (!isDragging) return;
     e.preventDefault();
-    const x = e.pageX - carouselContainer!.offsetLeft;
-    const walk = (x - startX);
-    carouselContainer!.scrollLeft = scrollLeft - walk;
+    const currentX = e.pageX;
+    // Calculate delta from last position for 1:1 responsive movement
+    // On first move, use startX; on subsequent moves, use lastX
+    const deltaX = lastX === 0 ? startX - currentX : lastX - currentX;
+    // Apply delta to current scroll position for immediate, responsive movement
+    const currentScrollLeft = carouselContainer!.scrollLeft;
+    const newScrollLeft = currentScrollLeft + deltaX;
+    lastDragDistance += deltaX; // Accumulate total drag distance for direction-based snapping
+    lastX = currentX; // Update last position for next delta calculation
+    carouselContainer!.scrollLeft = newScrollLeft;
   }
 
   function snapToNearestItem() {
     const itemWidth = carouselContainer!.querySelector('.carousel-item')?.clientWidth || 0;
-    const newIndex = Math.round(carouselContainer!.scrollLeft / itemWidth);
+    if (!itemWidth) return;
+    
+    // Determine snap direction based on drag distance
+    // If drag was even slightly (>15% of item width), snap in that direction
+    const dragThreshold = itemWidth * 0.15;
+    let newIndex: number;
+    
+    if (Math.abs(lastDragDistance) > dragThreshold) {
+      // Significant drag - snap in drag direction
+      if (lastDragDistance > 0) {
+        // Dragged left - go to next item (higher index)
+        newIndex = Math.min(currentIndex + 1, items.length - 1);
+      } else {
+        // Dragged right - go to previous item (lower index)
+        newIndex = Math.max(currentIndex - 1, 0);
+      }
+    } else {
+      // Small drag - snap to nearest item
+      newIndex = Math.round(carouselContainer!.scrollLeft / itemWidth);
+      // Clamp to valid range
+      newIndex = Math.max(0, Math.min(newIndex, items.length - 1));
+    }
+    
     goToItem(newIndex);
+    // Reset drag distance
+    lastDragDistance = 0;
   }
 </script>
 

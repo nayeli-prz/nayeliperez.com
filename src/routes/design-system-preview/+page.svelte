@@ -63,24 +63,31 @@
     </div>
 <!-- --- -->
 
-<h2>Logomark preview</h2>
+<h2 style="margin-bottom: 32px;">Logomark preview</h2>
 
-  <section style="align-items: start; display: flex; flex-direction: column; gap: 6px;">
-    <h6>IconOnly35</h6>
+  <section style="align-items: start; display: flex; flex-direction: column; gap: 6px; margin-bottom: 32px;">
+    <p class="text-base">IconOnly35</p>
     <div class="preview">
       <Logomark type="IconOnly35" />
     </div>
   </section>
 
-  <section style="align-items: start; display: flex; flex-direction: column; gap: 6px;">
-    <h6>Vertical-Sm</h6>
+  <section style="align-items: start; display: flex; flex-direction: column; gap: 6px; margin-bottom: 32px;">
+    <p class="text-base">Vertical-Sm</p>
     <div class="preview">
       <Logomark type="Vertical-Sm" />
     </div>
   </section>
 
-  <section style="align-items: start; display: flex; flex-direction: column; gap: 6px;">
-    <h6>Horizontal (default)</h6>
+  <section style="align-items: start; display: flex; flex-direction: column; gap: 6px; margin-bottom: 32px;">
+    <p class="text-base">Vertical-Lg</p>
+    <div class="preview">
+      <Logomark type="Vertical-Lg" />
+    </div>
+  </section>
+
+  <section style="align-items: start; display: flex; flex-direction: column; gap: 6px; margin-bottom: 32px;">
+    <p class="text-base">Horizontal (default)</p>
     <div class="preview">
       <Logomark type="Horizontal" />
     </div>

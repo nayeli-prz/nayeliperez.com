@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   color: #fff;
-  font-family: 'STIX Two Text', Georgia, serif; /* explicit font stack from project variables */
+  font-family: $font-serif;
 
   .icon {
     position: relative;
@@ -70,8 +70,8 @@
     width: 35px;
     height: 35px;
     &.icon--vertical-lg {
-      width: 65px;
-      height: 65px;
+      width: 55px;
+      height: 55px;
     }
 
     .rays {
@@ -94,11 +94,12 @@
     margin-left: 4px;
     text-transform: uppercase;
     color: #fff;
+    letter-spacing: 0.035rem;
     &.name--vertical { 
         margin-left: 0; 
         text-align: center; 
         font-size: 14px; 
-        line-height: 0.9rem;
+        line-height: 1rem;
         font-weight: 500; 
         width: 55px; 
     }
@@ -116,8 +117,13 @@
 
   &.vertical-lg {
     flex-direction: column;
-    gap: 12px;
-    .name { font-size: 1.6rem; line-height: 1.7rem; font-weight: 400; text-align: center; }
+    gap: 6px;
+    .name { 
+        font-size: 1.25rem; 
+        line-height: 1.6rem; 
+        font-weight: 400; 
+        text-align: center; 
+      }
   }
 
   &.horizontal {
@@ -140,6 +146,7 @@
 }
 .logomark-mobile {
   display: flex;
+  padding-bottom: #{$space-sm};
   @include breakpointMin('xs') {
     display: none;
   }

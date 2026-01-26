@@ -1,7 +1,7 @@
 @use 'sass:map';
 
 // ---------------- Font Variables ----------------
-$font-serif: 'STIX Two Text', Georgia, serif;
+$font-serif: 'Lora', Georgia, serif;
 $font-sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
 
 // ---------------- Color primitives ---------------------------
@@ -41,7 +41,7 @@ $orange-light: #fdeadb;
 $orange-bright: #EBA772;
 
 //Yellows
-$yellow-base: #988948;
+$yellow-base: #9a843d;
 $yellow-base-70: hsla(26, 37%, 47%, 0.7);
 $yellow-base-15: hsla(26, 37%, 47%, 0.15);
 $yellow-base-6: hsla(26, 37%, 47%, 0.06);
